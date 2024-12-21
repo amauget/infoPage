@@ -25,12 +25,12 @@ const server = http.createServer((req, res) => {
                 res.statusCode = 200
                 break
             
-            default:
+            default: //opted for throw due to occasional compounding paths (ex. contact + 404 = no webpage)
                 throw err
         }
     }
     catch(err){
-        path = './src/404.html'
+        path = './src/404.html' //resets path to 404
         res.statusCode = 404
     }
     
